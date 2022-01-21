@@ -1,13 +1,13 @@
 import type { NextPage } from 'next'
-import Head from 'next/head'
-import Image from 'next/image'
-import styles from '../styles/Home.module.css'
+import Header from 'components/common/Header'
+import MetaHead from 'components/common/MetaHead'
 
 const Home: NextPage = () => {
-  return (
-    <>
-      icchannel
-    </>
+    return (
+        <>
+            <MetaHead title='癒っちゃんねる' />
+            <Header />
+        </>
   )
 }
 
