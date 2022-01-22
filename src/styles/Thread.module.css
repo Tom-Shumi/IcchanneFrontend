@@ -1,0 +1,27 @@
+.thread {
+    border: 1px solid silver;
+    margin: 12px;
+    border-radius: 4px;
+    box-shadow: 1px 2px 5px 3px rgba(0,0,0,.1);
+    padding: 15px 40px;
+}
+
+.publishedDate {
+    display: block;
+    margin: 10px;
+    color: deepskyblue;
+}
+
+.title {
+    display: block;
+    color: black;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.readThreadButton {
+    width: 130px;
+    position: relative;
+    left: 640px;
+}
