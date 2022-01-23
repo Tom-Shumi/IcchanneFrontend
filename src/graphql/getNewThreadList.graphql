@@ -1,0 +1,10 @@
+query getNewThreadList($search: String, $category: String, $next: String) {
+    getNewThreadList(search: $search, category: $category, next: $next) {
+        id
+        title
+        url
+        siteName
+        category
+        publishedDate
+    }
+}
