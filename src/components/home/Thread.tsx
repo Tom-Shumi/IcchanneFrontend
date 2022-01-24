@@ -18,8 +18,8 @@ const NewThread: React.FC<Props> = (props) => {
                 </Col>
                 <Col xs={10}>
                     <label className={styles.publishedDate}>{toString(props.thread.publishedDate!!)}</label>
-                    <a className={styles.title} href={props.thread.url!!} target="_blank" rel="noopener noreferrer">{props.thread.title}</a>
-                    <Button variant="outline-info" className={styles.readThreadButton} href={props.thread.url!!} target="_blank" rel="noopener noreferrer">記事を読む ▶︎</Button>
+                    <a className={styles.title} href={props.thread.url!!} >{props.thread.title}</a>
+                    <Button variant="outline-info" className={styles.readThreadButton} href={props.thread.url!!} >記事を読む ▶︎</Button>
                 </Col>
             </Row>
         </div>
