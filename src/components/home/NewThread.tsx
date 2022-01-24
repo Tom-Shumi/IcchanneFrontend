@@ -5,27 +5,44 @@ import NewThreadLogo from 'public/new_thread_logo.png'
 import Thread from 'components/home/Thread'
 import * as graphql from 'components/generated/graphql'
 import Router from 'next/router'
-import {env} from 'utils/CommonUtils';
+import { env } from 'utils/CommonUtils';
+import { Button } from 'react-bootstrap';
+import { useEffect, useState } from 'react';
 
 const NewThread: NextPage = () => {
 
+    const [newThreadList, setNewThreadList] = useState<any[]>([]);
     const { called, loading, data, error } = graphql.useGetNewThreadListQuery();
+    const [ getNewThreadListLazyQuery, {data: lazyData} ] = graphql.useGetNewThreadListLazyQuery({fetchPolicy: "network-only"});
+    
+    useEffect(() => {
+        setNewThreadList(data?.getNewThreadList?? [])
+    }, [data])
+
+    // useEffect(() => {
+    //     setNewThreadList(newThreadList.concat(lazyData?.getNewThreadList))
+    // }, [lazyData])
+
     if (called && loading) return <p className={styles.newThread}>Loading ...</p>
     if (error) Router.push(env(process.env.NEXT_PUBLIC_ERROR_PAGE))
 
-    let newThreadList = data?.getNewThreadList?? [];
+
+    const loadNextThread = () => {
+        
+    }
+
 
     console.log(newThreadList)
-
     return (
         <div className={styles.newThread}>
             <Image src={NewThreadLogo} alt="新着まとめ記事" />
             <hr className={styles.dashHr}/>
             {
-                newThreadList.map((newThread) => (
+                newThreadList.map((newThread: graphql.Thread) => (
                     <Thread key={`newThread${newThread!!.id}`} thread={newThread!!} />
                 ))
             }
+            <Button variant="outline-primary" onClick={loadNextThread} className={styles.moreLoadButton}>次の記事を読み込む</Button>
         </div>
     )
 }
