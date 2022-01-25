@@ -19,20 +19,24 @@ const NewThread: NextPage = () => {
         setNewThreadList(data?.getNewThreadList?? [])
     }, [data])
 
-    // useEffect(() => {
-    //     setNewThreadList(newThreadList.concat(lazyData?.getNewThreadList))
-    // }, [lazyData])
+    useEffect(() => {
+        if (lazyData?.getNewThreadList != null && lazyData?.getNewThreadList.length != 0) {
+            setNewThreadList(newThreadList.concat(lazyData?.getNewThreadList))
+        }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [lazyData])
 
-    if (called && loading) return <p className={styles.newThread}>Loading ...</p>
+    if (called && loading || newThreadList[0] == undefined) return <p className={styles.newThread}>Loading ...</p>
     if (error) Router.push(env(process.env.NEXT_PUBLIC_ERROR_PAGE))
 
-
     const loadNextThread = () => {
-        
+        if (newThreadList.length == 0) {
+            return;
+        }
+        let oldestDate = newThreadList[newThreadList.length - 1].publishedDate;
+        getNewThreadListLazyQuery({ variables: {next: oldestDate} })
     }
 
-
-    console.log(newThreadList)
     return (
         <div className={styles.newThread}>
             <Image src={NewThreadLogo} alt="新着まとめ記事" />
