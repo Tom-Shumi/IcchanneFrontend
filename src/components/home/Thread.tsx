@@ -1,6 +1,4 @@
-import Image from 'next/image'
 import styles from 'styles/Thread.module.css'
-import image from 'public/relax.png'
 import {Row, Col, Button} from 'react-bootstrap';
 import { Thread } from 'components/generated/graphql'
 import {toString} from 'utils/DateTimeUtils'
