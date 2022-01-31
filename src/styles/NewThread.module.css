@@ -13,3 +13,14 @@
     width: 100%;
     height: 60px;
 }
+
+.searchText {
+    width: 80%;
+    display: inline;
+}
+
+.searchIcon {
+    width: 50px;
+    margin-left: 10px;
+    margin-bottom: 3px;
+}

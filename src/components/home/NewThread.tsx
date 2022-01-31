@@ -6,12 +6,14 @@ import Thread from 'components/home/Thread'
 import * as graphql from 'components/generated/graphql'
 import Router from 'next/router'
 import { env } from 'utils/CommonUtils';
-import { Button } from 'react-bootstrap';
+import { Button, Form, Row, Col } from 'react-bootstrap';
 import { useEffect, useState } from 'react';
 
 const NewThread: NextPage = () => {
 
     const [newThreadList, setNewThreadList] = useState<any[]>([]);
+    const [searchText, setSearchText] = useState("");
+    const [searchedText, setSearchedText] = useState("");
     const { called, loading, data, error } = graphql.useGetNewThreadListQuery();
     const [ getNewThreadListLazyQuery, {data: lazyData} ] = graphql.useGetNewThreadListLazyQuery({fetchPolicy: "network-only"});
     
@@ -34,12 +36,32 @@ const NewThread: NextPage = () => {
             return;
         }
         let oldestDate = newThreadList[newThreadList.length - 1].publishedDate;
-        getNewThreadListLazyQuery({ variables: {next: oldestDate} })
+        getNewThreadListLazyQuery({ variables: {search: searchedText, next: oldestDate} })
+    }
+
+    const handleChangeSearchText = () => {
+        return (e: any) => {
+            setSearchText(e.target.value);
+        };
+    }
+
+    const search = () => {
+        setSearchedText(searchText);
+        setNewThreadList([]);
+        getNewThreadListLazyQuery({ variables: {search: searchText} })
     }
 
     return (
         <div className={styles.newThread}>
-            <Image src={NewThreadLogo} alt="新着まとめ記事" />
+            <Row>
+                <Col xs={6}>
+                    <Image src={NewThreadLogo} alt="新着まとめ記事" />
+                </Col>
+                <Col xs={6}>
+                    <Form.Control className={styles.searchText} type="text" value={searchText} onChange={handleChangeSearchText()} placeholder="記事検索" />
+                    <Button variant="outline-success" className={styles.searchIcon} onClick={search}>🔍</Button>
+                </Col>
+            </Row>
             <hr className={styles.dashHr}/>
             {
                 newThreadList.map((newThread: graphql.Thread) => (
