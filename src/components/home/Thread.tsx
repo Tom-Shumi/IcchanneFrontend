@@ -13,7 +13,7 @@ const NewThread: React.FC<Props> = (props) => {
         <div className={styles.thread}>
             <Row>
                 <Col xs={2}>
-                    <ThreadImage category={props.thread.category!!}/>
+                    <ThreadImage category={props.thread.category!!} size={100}/>
                 </Col>
                 <Col xs={10}>
                     <label className={styles.publishedDate}>{toString(props.thread.publishedDate!!)}</label>

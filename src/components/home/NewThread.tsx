@@ -48,16 +48,16 @@ const NewThread: NextPage = () => {
     const search = () => {
         setSearchedText(searchText);
         setNewThreadList([]);
-        getNewThreadListLazyQuery({ variables: {search: searchText} })
+        getNewThreadListLazyQuery({ variables: {search: searchText} });
     }
 
     return (
         <div className={styles.newThread}>
             <Row>
-                <Col xs={6}>
+                <Col md={6} xs={12}>
                     <Image src={NewThreadLogo} alt="新着まとめ記事" />
                 </Col>
-                <Col xs={6}>
+                <Col md={6} xs={12}>
                     <Form.Control className={styles.searchText} type="text" value={searchText} onChange={handleChangeSearchText()} placeholder="記事検索" />
                     <Button variant="outline-success" className={styles.searchIcon} onClick={search}>🔍</Button>
                 </Col>

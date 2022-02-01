@@ -8,6 +8,7 @@ import RelaxImage from 'public/relax.png'
 
 interface Props {
     category: String
+    size: number
 }
 
 const ThreadImage: React.FC<Props> = (props) => {
@@ -34,7 +35,7 @@ const ThreadImage: React.FC<Props> = (props) => {
     }
 
     return (
-        <Image src={threadImage} alt="スレッドイメージ" width={100} height={100} />
+        <Image src={threadImage} alt="スレッドイメージ" width={props.size} height={props.size} />
     )
 }
 

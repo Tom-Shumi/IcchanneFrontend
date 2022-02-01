@@ -15,12 +15,13 @@
 }
 
 .searchText {
-    width: 80%;
+    width: 300px;
     display: inline;
+    margin-left: 10px;
 }
 
 .searchIcon {
-    width: 50px;
+    width: 40px;
     margin-left: 10px;
     margin-bottom: 3px;
 }
