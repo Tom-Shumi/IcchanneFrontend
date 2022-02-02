@@ -5,12 +5,24 @@
     margin-bottom: 35px;
 }
 
+.newThreadMobile {
+    margin: 0px auto;
+    margin-top: 35px;
+    margin-bottom: 35px;
+}
+
 .dashHr {
     border-top: 1px dashed silver;
 }
 
 .moreLoadButton {
     width: 100%;
+    height: 60px;
+}
+
+.moreLoadButtonMobile {
+    margin-left: 10px;
+    width: 95%;
     height: 60px;
 }
 
@@ -24,4 +36,8 @@
     width: 40px;
     margin-left: 10px;
     margin-bottom: 3px;
+}
+
+.newThreadLogoMobile {
+    margin-left: 10px;
 }

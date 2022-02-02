@@ -4,3 +4,14 @@
     border-bottom: solid;
     border-color: silver;
 }
+
+.headerMobile {
+    width: 1000px;
+    margin: 0px auto;
+    border-bottom: solid;
+    border-color: silver;
+}
+
+.imageMobile {
+    padding-left: 10px !important;
+}

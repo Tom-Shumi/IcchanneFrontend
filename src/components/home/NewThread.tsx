@@ -1,13 +1,15 @@
 import type { NextPage } from 'next'
 import Image from 'next/image'
 import styles from 'styles/NewThread.module.css'
-import NewThreadLogo from 'public/new_thread_logo.png'
+import NewThreadLogo from 'components/home/NewThreadLogo'
+import LoadNextThreadButton from 'components/home/LoadNextThreadButton'
 import Thread from 'components/home/Thread'
 import * as graphql from 'components/generated/graphql'
 import Router from 'next/router'
 import { env } from 'utils/CommonUtils';
 import { Button, Form, Row, Col } from 'react-bootstrap';
 import { useEffect, useState } from 'react';
+import {useMobileScreen} from 'utils/CommonUtils'
 
 const NewThread: NextPage = () => {
 
@@ -17,6 +19,8 @@ const NewThread: NextPage = () => {
     const { called, loading, data, error } = graphql.useGetNewThreadListQuery();
     const [ getNewThreadListLazyQuery, {data: lazyData} ] = graphql.useGetNewThreadListLazyQuery({fetchPolicy: "network-only"});
     
+    const newThreadStyle = useMobileScreen() ? styles.newThreadMobile : styles.newThread;
+
     useEffect(() => {
         setNewThreadList(data?.getNewThreadList?? [])
     }, [data])
@@ -52,11 +56,9 @@ const NewThread: NextPage = () => {
     }
 
     return (
-        <div className={styles.newThread}>
+        <div className={newThreadStyle}>
             <Row>
-                <Col md={6} xs={12}>
-                    <Image src={NewThreadLogo} alt="新着まとめ記事" />
-                </Col>
+                <NewThreadLogo />
                 <Col md={6} xs={12}>
                     <Form.Control className={styles.searchText} type="text" value={searchText} onChange={handleChangeSearchText()} placeholder="記事検索" />
                     <Button variant="outline-success" className={styles.searchIcon} onClick={search}>🔍</Button>
@@ -68,7 +70,7 @@ const NewThread: NextPage = () => {
                     <Thread key={`newThread${newThread!!.id}`} thread={newThread!!} />
                 ))
             }
-            <Button variant="outline-primary" onClick={loadNextThread} className={styles.moreLoadButton}>次の記事を読み込む</Button>
+            <LoadNextThreadButton loadNextThread={loadNextThread}/>
         </div>
     )
 }
