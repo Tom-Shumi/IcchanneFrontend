@@ -6,10 +6,27 @@
     padding: 15px 40px;
 }
 
+.threadMobile {
+    border: 1px solid silver;
+    margin: 12px;
+    border-radius: 4px;
+    box-shadow: 1px 2px 5px 3px rgba(0,0,0,.1);
+    padding: 0px 10px 10px 10px;
+    cursor: pointer;
+}
+
 .publishedDate {
     display: block;
     margin: 10px;
     color: deepskyblue;
+}
+
+.publishedDateMobile {
+    display: block;
+    margin: 10px 0px 5px 0px;
+    color: deepskyblue;
+    font-size: 11px;
+    cursor: pointer;
 }
 
 .title {
@@ -20,8 +37,27 @@
     font-size: 18px;
 }
 
+.titleMobile {
+    display: block;
+    color: black;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 12px;
+}
+
 .readThreadButton {
     width: 130px;
     position: relative;
     left: 640px;
+}
+
+.imageMobile {
+    display: flex;
+    align-items: center;
+    padding-left: 5px;
+    padding-right: 0px;
+}
+
+.aTagMobile {
+    text-decoration:none; 
 }

@@ -11,7 +11,21 @@ interface Props {
 
 const NewThread: React.FC<Props> = (props) => {
     if (useMobileScreen()) {
-        return <></>
+        return (
+            <a href={props.thread.url!!} className={styles.aTagMobile}>
+                <div className={styles.threadMobile}>
+                    <Row>
+                        <Col xs={2} className={styles.imageMobile}>
+                            <ThreadImage category={props.thread.category!!} size={100}/>
+                        </Col>
+                        <Col xs={10}>
+                            <label className={styles.publishedDateMobile}>{toString(props.thread.publishedDate!!)}</label>
+                            <label className={styles.titleMobile}>{props.thread.title}</label>
+                        </Col>
+                    </Row>
+                </div>
+            </a>
+        )
     } else {
         return (
             <div className={styles.thread}>
