@@ -7,15 +7,15 @@ import {useMobileScreen} from 'utils/CommonUtils'
 
 const Header: NextPage = () => {
 
-    if (useMobileScreen()) {
+    // if (useMobileScreen()) {
         return (<div className={styles.headerMobile}>
                     <Image className={styles.imageMobile} src={Logo} alt="癒っちゃんねる" />
                 </div>)
-    } else {
-        return (<div className={styles.header}>
-                    <Image src={LogoBig} alt="癒っちゃんねる" />
-                </div>)
-    }
+    // } else {
+    //     return (<div className={styles.header}>
+    //                 <Image src={LogoBig} alt="癒っちゃんねる" />
+    //             </div>)
+    // }
 
 }
 
