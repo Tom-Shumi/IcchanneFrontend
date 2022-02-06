@@ -11,6 +11,8 @@ import { useEffect, useState } from 'react';
 import {useMobileScreen} from 'utils/CommonUtils'
 import AdLeft from 'components/common/AdLeft'
 import AdRight from 'components/common/AdRight'
+import AdTop from 'components/common/AdMobileTop'
+import AdBottom from 'components/common/AdMobileBottom'
 
 const NewThread: NextPage = () => {
 
@@ -20,7 +22,8 @@ const NewThread: NextPage = () => {
     const { called, loading, data, error } = graphql.useGetNewThreadListQuery();
     const [ getNewThreadListLazyQuery, {data: lazyData} ] = graphql.useGetNewThreadListLazyQuery({fetchPolicy: "network-only"});
     
-    const newThreadStyle = useMobileScreen() ? styles.newThreadMobile : styles.newThread;
+    const isMobileScreen = useMobileScreen() ? true : false;
+    const newThreadStyle = isMobileScreen ? styles.newThreadMobile : styles.newThread;
 
     useEffect(() => {
         setNewThreadList(data?.getNewThreadList?? [])
@@ -58,7 +61,8 @@ const NewThread: NextPage = () => {
 
     return (
         <div className={newThreadStyle}>
-            <AdLeft />
+            {isMobileScreen || <AdLeft />}
+            {isMobileScreen && <AdTop />}
             <div>
                 <Row>
                     <NewThreadLogo />
@@ -75,7 +79,8 @@ const NewThread: NextPage = () => {
                 }
                 <LoadNextThreadButton loadNextThread={loadNextThread}/>
             </div>
-            <AdRight />
+            {isMobileScreen || <AdRight />}
+            {isMobileScreen && <AdBottom />}
         </div>
     )
 }

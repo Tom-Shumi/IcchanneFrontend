@@ -3,10 +3,10 @@
     margin: 0px auto;
     border-bottom: solid;
     border-color: silver;
+    text-align: center;
 }
 
 .headerMobile {
-    width: 1300px;
     margin: 0px auto;
     border-bottom: solid;
     border-color: silver;

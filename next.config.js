@@ -16,6 +16,6 @@ module.exports = {
   },
   future: {webpack5: true},
   images: {
-    domains: ['hbb.afl.rakuten.co.jp', 'www11.a8.net'],
+    domains: ['hbb.afl.rakuten.co.jp', 'www11.a8.net', 'www14.a8.net'],
   },
 }

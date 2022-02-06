@@ -10,7 +10,6 @@ const Home: NextPage = () => {
         <>
             <MetaHead title='癒っちゃんねる' />
             <Header />
-            
             <NewThread />
             <Footer />
         </>
