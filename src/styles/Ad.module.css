@@ -1,0 +1,15 @@
+.adLeft {
+    z-index: 100;
+    left: 50px;
+    width: 100px;
+    float: left;
+    margin-right: 10px;
+}
+
+.adRight {
+    z-index: 100;
+    left: 50px;
+    width: 100px;
+    float: right;
+    margin-left: 10px;
+}

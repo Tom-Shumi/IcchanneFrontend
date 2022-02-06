@@ -1,6 +1,6 @@
 .thread {
     border: 1px solid silver;
-    margin: 12px;
+    margin: 10px 0px 10px 0px;
     border-radius: 4px;
     box-shadow: 1px 2px 5px 3px rgba(0,0,0,.1);
     padding: 15px 40px;
@@ -48,7 +48,7 @@
 .readThreadButton {
     width: 130px;
     position: relative;
-    left: 640px;
+    left: 590px;
 }
 
 .imageMobile {

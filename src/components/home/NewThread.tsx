@@ -1,5 +1,4 @@
 import type { NextPage } from 'next'
-import Image from 'next/image'
 import styles from 'styles/NewThread.module.css'
 import NewThreadLogo from 'components/home/NewThreadLogo'
 import LoadNextThreadButton from 'components/home/LoadNextThreadButton'
@@ -10,6 +9,8 @@ import { env } from 'utils/CommonUtils';
 import { Button, Form, Row, Col } from 'react-bootstrap';
 import { useEffect, useState } from 'react';
 import {useMobileScreen} from 'utils/CommonUtils'
+import AdLeft from 'components/common/AdLeft'
+import AdRight from 'components/common/AdRight'
 
 const NewThread: NextPage = () => {
 
@@ -57,20 +58,24 @@ const NewThread: NextPage = () => {
 
     return (
         <div className={newThreadStyle}>
-            <Row>
-                <NewThreadLogo />
-                <Col md={6} xs={12}>
-                    <Form.Control className={styles.searchText} type="text" value={searchText} onChange={handleChangeSearchText()} placeholder="記事検索" />
-                    <Button variant="outline-success" className={styles.searchIcon} onClick={search}>🔍</Button>
-                </Col>
-            </Row>
-            <hr className={styles.dashHr}/>
-            {
-                newThreadList.map((newThread: graphql.Thread) => (
-                    <Thread key={`newThread${newThread!!.id}`} thread={newThread!!} />
-                ))
-            }
-            <LoadNextThreadButton loadNextThread={loadNextThread}/>
+            <AdLeft />
+            <div>
+                <Row>
+                    <NewThreadLogo />
+                    <Col md={6} xs={12}>
+                        <Form.Control className={styles.searchText} type="text" value={searchText} onChange={handleChangeSearchText()} placeholder="記事検索" />
+                        <Button variant="outline-success" className={styles.searchIcon} onClick={search}>🔍</Button>
+                    </Col>
+                </Row>
+                <hr className={styles.dashHr}/>
+                {
+                    newThreadList.map((newThread: graphql.Thread) => (
+                        <Thread key={`newThread${newThread!!.id}`} thread={newThread!!} />
+                    ))
+                }
+                <LoadNextThreadButton loadNextThread={loadNextThread}/>
+            </div>
+            <AdRight />
         </div>
     )
 }
