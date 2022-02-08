@@ -16,14 +16,16 @@ const MetaHead: React.FC<Props> = (props: Props) => {
                 <link rel="icon" type="image/x-icon" href={favicon.src} />
                 {/* <GoogleAnalytics />
                  */}
-                <script async src="https://www.googletagmanager.com/gtag/js?id=UA-219699321-1"></script>
-                <script>
-                    {`window.dataLayer = window.dataLayer || [];
+                <script async src="https://www.googletagmanager.com/gtag/js?id=UA-219699321-1" />
+                <script dangerouslySetInnerHTML={{
+                __html: `
+                    window.dataLayer = window.dataLayer || [];
                     function gtag(){dataLayer.push(arguments);}
                     gtag('js', new Date());
-                    gtag('config', 'UA-219699321-1');`}
-                </script>
-
+                    gtag('config', 'UA-219699321-1', {
+                        page_path: window.location.pathname,
+                    });`,
+                }} />
             </Head>
         </>
     )
