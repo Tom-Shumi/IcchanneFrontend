@@ -8,7 +8,6 @@ import GoogleAnalytics from 'lib/GoogleAnalytics'
 
 const MyApp = ({ Component, pageProps }: AppProps) => (
   <>
-    <GoogleAnalytics />
     <ApolloProvider client={apolloClient}>
       <Component {...pageProps} />
     </ApolloProvider>
