@@ -1,4 +1,4 @@
-import GoogleAnalytics from 'lib/GoogleAnalytics';
+/* eslint-disable @next/next/next-script-for-ga */
 import Head from 'next/head'
 import favicon from 'public/favicon.ico';
 
@@ -14,7 +14,16 @@ const MetaHead: React.FC<Props> = (props: Props) => {
                 <meta charSet='utf-8' />
                 <meta name='viewport' content='initial-scale=1.0, width=device-width' />
                 <link rel="icon" type="image/x-icon" href={favicon.src} />
-                <GoogleAnalytics />
+                {/* <GoogleAnalytics />
+                 */}
+                <script async src="https://www.googletagmanager.com/gtag/js?id=UA-219699321-1"></script>
+                <script>
+                    {`window.dataLayer = window.dataLayer || [];
+                    function gtag(){dataLayer.push(arguments);}
+                    gtag('js', new Date());
+                    gtag('config', 'UA-219699321-1');`}
+                </script>
+
             </Head>
         </>
     )
