@@ -4,6 +4,7 @@
     border-radius: 4px;
     box-shadow: 1px 2px 5px 3px rgba(0,0,0,.1);
     padding: 15px 40px;
+    width: 1000px;
 }
 
 .threadMobile {
@@ -48,7 +49,7 @@
 .readThreadButton {
     width: 130px;
     position: relative;
-    left: 590px;
+    left: 650px;
 }
 
 .imageMobile {
