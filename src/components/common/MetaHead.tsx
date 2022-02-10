@@ -13,6 +13,7 @@ const MetaHead: React.FC<Props> = (props: Props) => {
                 <title>{props.title}</title>
                 <meta charSet='utf-8' />
                 <meta name='viewport' content='initial-scale=1.0, width=device-width' />
+                <meta name='description' content='癒される記事だけを集めたまとめサイトです。日頃の仕事や人生に疲れたあなたの心を癒やす記事が盛り沢山！' />
                 <link rel="icon" type="image/x-icon" href={favicon.src} />
                 {/* <GoogleAnalytics />
                  */}
