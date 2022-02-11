@@ -13,6 +13,7 @@ import AdLeft from 'components/common/AdLeft'
 import AdRight from 'components/common/AdRight'
 import AdTop from 'components/common/AdMobileTop'
 import AdBottom from 'components/common/AdMobileBottom'
+import AdmaxSwitch from 'utils/AdmaxSwitch'
 
 const NewThread: NextPage = () => {
 
@@ -81,6 +82,7 @@ const NewThread: NextPage = () => {
             </div>
             {isMobileScreen || <AdRight />}
             {isMobileScreen && <AdBottom />}
+            {isMobileScreen && <AdmaxSwitch id="78f759386b8117ac20be23f76ff61fc9" />}
         </div>
     )
 }
