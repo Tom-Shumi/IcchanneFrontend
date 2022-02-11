@@ -11,7 +11,7 @@ const Home: NextPage = () => {
         <>
             <MetaHead title='癒っちゃんねる' />
             <Header />
-            <h1 className={styles.h1}>癒される記事だけを集めたまとめサイトです。<br />
+            <h1 className={styles.h1}>癒される記事だけを集めた2ちゃんねるのまとめサイトです。<br />
             日頃の仕事や人生に疲れたあなたの心を癒やす記事が盛り沢山！</h1>
             <NewThread />
             <Footer />
