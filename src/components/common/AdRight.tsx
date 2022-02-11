@@ -1,8 +1,17 @@
 import type { NextPage } from 'next'
 import Image from 'next/image'
 import styles from 'styles/Ad.module.css'
+import { useEffect } from 'react'
 
 const AdRight: NextPage = () => {
+
+    useEffect(() => {
+        const postscribe = require('postscribe');
+        postscribe(
+            '#admaxRight',
+            '<script src="https://adm.shinobi.jp/s/6c8d5c9b6e9747a2eb6013882c2a8f32"></script>'
+        );
+    }, []);
 
     return (
         <div className={styles.adRight}>
@@ -10,7 +19,7 @@ const AdRight: NextPage = () => {
             <Image width="100" height="500" alt="rakuten" src="http://hbb.afl.rakuten.co.jp/hsb/0eb4bbd6.e4f5b3a4.0eb4bbaa.95151395/" /></a>
             <Image width="1" height="1" src="https://www17.a8.net/0.gif?a8mat=3N3RI4+7HPDTE+2HOM+61JSH" alt="" />
             
-            <script async src="https://adm.shinobi.jp/s/6c8d5c9b6e9747a2eb6013882c2a8f32" />
+            <div id="admaxRight"></div>
         </div>
     )
 

@@ -82,9 +82,6 @@ const NewThread: NextPage = () => {
             </div>
             {isMobileScreen || <AdRight />}
             {isMobileScreen && <AdBottom />}
-            {isMobileScreen && 
-                <script async src="https://adm.shinobi.jp/s/78f759386b8117ac20be23f76ff61fc9" />
-            }
         </div>
     )
 }
